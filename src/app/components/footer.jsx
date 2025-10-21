@@ -8,20 +8,20 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
             <Snowflake className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0" />
             <h3 className="text-xl sm:text-2xl font-bold text-center">
-              <span className="text-accent">REFIRELECTRICOS</span>
+              <span className="text-accent">REFRIELECTRICOS</span>
             </h3>
             <Zap className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0" />
           </div>
 
           <p className="text-center text-primary-foreground/80 max-w-lg text-pretty text-sm sm:text-base px-4">
-            Servicios profesionales de refrigeración y electricidad a tu puerta
+            Servicios profesionales de refrigeración y electricidad en todo el Atlántico
           </p>
 
           <div className="flex items-center gap-2 text-primary-foreground/90 text-sm sm:text-base">
             <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             <span className="font-medium">
-              <span className="hidden xs:inline">Barranquilla, Colombia</span>
-              <span className="xs:hidden">Barranquilla</span>
+              <span className="hidden xs:inline">Atlántico, Colombia</span>
+              <span className="xs:hidden">Atlántico</span>
             </span>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
           </div>
 
           <div className="pt-4 sm:pt-6 border-t border-primary-foreground/20 w-full text-center text-xs sm:text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Refirelectricos. Todos los derechos reservados.
+            © {new Date().getFullYear()} Refrielectricos. Todos los derechos reservados.
           </div>
         </div>
       </div>
