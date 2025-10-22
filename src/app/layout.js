@@ -16,7 +16,6 @@ export const metadata = {
   description: "Servicios profesionales de refrigeración y electricidad en todo el Atlántico. Instalación, mantenimiento y reparación de aires acondicionados, sistemas eléctricos y más.",
   keywords: "refrigeración, electricidad, aire acondicionado, Atlántico, Barranquilla, Soledad, instalación, mantenimiento, reparación, colombia",
   authors: [{ name: "REFIRELECTRICOS", url: "https://refrielectricos.com" }],
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   robots: "index, follow",
   openGraph: {
     title: "REFIRELECTRICOS",
@@ -31,13 +30,19 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

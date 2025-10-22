@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
@@ -18,7 +18,7 @@ const services = [
     id: "mantenimiento",
     category: "Refrigeración",
     title: "Mantenimiento Preventivo y Correctivo",
-    description: "Servicio completo de mantenimiento para prolongar la vida útil de tu equipo",
+    description: "Servicio completo de mantenimiento para prolongar la vida útil de su equipo",
     icon: <Wrench className="w-8 h-8" />,
   },
   {
@@ -53,7 +53,7 @@ const services = [
     id: "persianas",
     category: "Instalación Varia",
     title: "Instalación de Persianas",
-    description: "Instalación profesional de persianas y cortinas para tu hogar u oficina",
+    description: "Instalación profesional de persianas y cortinas para su hogar u oficina",
     icon: <Blinds className="w-8 h-8" />,
   },
   {
@@ -67,7 +67,7 @@ const services = [
     id: "muebles",
     category: "Instalación Varia",
     title: "Instalación de Todo Tipo de Muebles",
-    description: "Armado e instalación de muebles y repisas para tu espacio",
+    description: "Armado e instalación de muebles y repisas para su espacio",
     icon: <Armchair className="w-8 h-8" />,
   },
 ]
@@ -75,10 +75,28 @@ const services = [
 export function Services() {
   const [selectedServices, setSelectedServices] = useState([])
   const [filter, setFilter] = useState("Todos")
+  const [isInContactSection, setIsInContactSection] = useState(false)
 
   const categories = ["Todos", "Refrigeración", "Electricidad", "Instalación Varia"]
 
   const filteredServices = filter === "Todos" ? services : services.filter((s) => s.category === filter)
+
+  // Detectar cuando el usuario está en la sección de contacto
+  useEffect(() => {
+    const handleScroll = () => {
+      const contactSection = document.getElementById('contacto')
+      if (contactSection) {
+        const rect = contactSection.getBoundingClientRect()
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+        setIsInContactSection(isVisible)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Verificar estado inicial
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleService = (serviceId) => {
     setSelectedServices((prev) =>
@@ -126,8 +144,12 @@ export function Services() {
             Nuestros Servicios Profesionales
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty leading-relaxed px-2">
-            Selecciona los servicios que necesitas y te contactaremos de inmediato
+            <span className="font-semibold text-primary">Haz clic en los servicios</span> que necesitas y te contactaremos de inmediato
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            Los servicios son seleccionables
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-6 sm:mb-8 px-2 animate-slide-up">
@@ -157,7 +179,7 @@ export function Services() {
                 className={`cursor-pointer transition-all duration-300 hover-lift hover-glow group relative overflow-hidden ${
                   isSelected 
                     ? "ring-2 ring-primary shadow-elegant-lg bg-gradient-to-br from-primary/5 to-accent/5" 
-                    : "shadow-elegant bg-white/80 backdrop-blur-sm hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5"
+                    : "shadow-elegant bg-white/80 backdrop-blur-sm hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5 hover:ring-1 hover:ring-primary/30"
                 }`}
                 onClick={() => toggleService(service.id)}
                 style={{ 
@@ -182,9 +204,13 @@ export function Services() {
                         {service.icon}
                       </div>
                     </div>
-                    {isSelected && (
+                    {isSelected ? (
                       <div className="gradient-accent text-white rounded-full p-1 shadow-elegant animate-fade-in">
                         <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </div>
+                    ) : (
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-dashed border-primary/30 group-hover:border-primary/60 group-hover:bg-primary/5 transition-all duration-300 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-primary/40 rounded-full group-hover:bg-primary/60 transition-colors duration-300"></div>
                       </div>
                     )}
                   </div>
@@ -212,8 +238,17 @@ export function Services() {
           })}
         </div>
 
-        {selectedServices.length > 0 && (
-          <div className="fixed bottom-4 sm:bottom-6 left-4 sm:left-1/2 sm:-translate-x-1/2 right-4 sm:right-auto z-50 animate-fade-in">
+        {selectedServices.length === 0 && (
+          <div className="text-center py-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full text-sm font-medium text-primary border border-primary/20">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              Haz clic en cualquier servicio para seleccionarlo
+            </div>
+          </div>
+        )}
+
+        {selectedServices.length > 0 && !isInContactSection && (
+          <div className="fixed bottom-4 sm:bottom-6 left-4 sm:left-1/2 sm:-translate-x-1/2 right-4 sm:right-auto z-40 animate-fade-in">
             <Card className="shadow-elegant-lg border-2 border-primary/20 bg-white/95 backdrop-blur-sm hover:shadow-elegant-lg transition-all duration-300">
               <CardContent className="p-3 sm:p-4">
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
