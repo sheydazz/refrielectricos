@@ -12,17 +12,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Refri Electricos - Servicios Profesionales en Barranquilla",
-  description: "Servicios profesionales de refrigeración y electricidad en Barranquilla. Instalación, mantenimiento y reparación de aires acondicionados, sistemas eléctricos y más.",
-  keywords: "refrigeración, electricidad, aire acondicionado, Barranquilla, instalación, mantenimiento, reparación, barranquilla, colombia",
-  authors: [{ name: "RefriElectricos", url: "https://refrielectricos.com" }],
+  title: "REFIRELECTRICOS - Servicios Profesionales en el Atlántico",
+  description: "Servicios profesionales de refrigeración y electricidad en todo el Atlántico. Instalación, mantenimiento y reparación de aires acondicionados, sistemas eléctricos y más.",
+  keywords: "refrigeración, electricidad, aire acondicionado, Atlántico, Barranquilla, Soledad, instalación, mantenimiento, reparación, colombia",
+  authors: [{ name: "REFIRELECTRICOS", url: "https://refrielectricos.com" }],
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   robots: "index, follow",
   openGraph: {
-    title: "Refirelectricos",
-    description: "Servicios profesionales de refrigeración y electricidad en Barranquilla",
+    title: "REFIRELECTRICOS",
+    description: "Servicios profesionales de refrigeración y electricidad en todo el Atlántico",
     type: "website",
     locale: "es_CO",
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
@@ -30,6 +35,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

@@ -97,10 +97,10 @@ export function Contact() {
                 <span className="font-medium text-sm sm:text-base bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Email</span>
               </div>
               <a 
-                href="mailto:refirelectricosbarranquilla@gmail.com" 
+                href="mailto:refrielectricosbarranquila@gmail.com" 
                 className="text-base sm:text-lg text-primary hover:text-accent transition-colors duration-300 break-all hover:underline"
               >
-                refirelectricosbarranquilla@gmail.com
+             refrielectricosbarranquila@gmail.com
               </a>
             </CardContent>
           </Card>
