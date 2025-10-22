@@ -12,21 +12,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "REFIRELECTRICOS - Servicios Profesionales en el Atlántico",
+  title: "REFRIELECTRICOS - Servicios Profesionales en el Atlántico",
   description: "Servicios profesionales de refrigeración y electricidad en todo el Atlántico. Instalación, mantenimiento y reparación de aires acondicionados, sistemas eléctricos y más.",
   keywords: "refrigeración, electricidad, aire acondicionado, Atlántico, Barranquilla, Soledad, instalación, mantenimiento, reparación, colombia",
-  authors: [{ name: "REFIRELECTRICOS", url: "https://refrielectricos.com" }],
+  authors: [{ name: "REFRIELECTRICOS", url: "https://refrielectricos.com" }],
   robots: "index, follow",
   openGraph: {
-    title: "REFIRELECTRICOS",
+    title: "REFRIELECTRICOS",
     description: "Servicios profesionales de refrigeración y electricidad en todo el Atlántico",
     type: "website",
     locale: "es_CO",
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/favicon-32x32.png',
+    shortcut: '/favicon-32x32.png',
+    apple: '/favicon-32x32.png',
   },
 };
 
